@@ -77,4 +77,8 @@ source/
 
 ---
 
+## Flow dyagram
+
+![Technical Diagram](flow_diagram.png)
+
 Made with ❤️ by Manfredi Rizza
