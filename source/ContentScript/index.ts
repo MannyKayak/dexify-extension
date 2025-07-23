@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-console.log("✅ Dexify content script attivo su", window.location.href);
 
 ((): void => {
   const { hostname } = window.location;

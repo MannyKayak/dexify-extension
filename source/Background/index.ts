@@ -9,7 +9,6 @@ chrome.runtime.onMessage.addListener((message, sender, _sendResponse) => {
     // ✅ GITHUB
     if (message.type === "GITHUB_USERNAME_DETECTED") {
       const username = message.payload;
-      console.log("👤 GitHub username intercettato:", username);
 
       chrome.storage.local.remove(["redditData", "unsupportedSite"]);
 
@@ -20,7 +19,6 @@ chrome.runtime.onMessage.addListener((message, sender, _sendResponse) => {
             githubData: data,
             unsupportedSite: false,
           });
-          console.log("✅ Dati GitHub salvati");
         })
         .catch((err) => console.error("❌ Errore fetch GitHub:", err));
     }
@@ -28,7 +26,6 @@ chrome.runtime.onMessage.addListener((message, sender, _sendResponse) => {
     // ✅ REDDIT
     if (message.type === "REDDIT_USERNAME_DETECTED") {
       const redditUser = message.payload;
-      console.log("👽 Reddit user intercettato:", redditUser);
 
       chrome.storage.local.remove(["githubData", "unsupportedSite"]);
 
@@ -50,15 +47,11 @@ chrome.runtime.onMessage.addListener((message, sender, _sendResponse) => {
               redditData,
               unsupportedSite: false,
             });
-            console.log("✅ Dati Reddit salvati:", redditData);
           }
         })
         .catch((err) => console.error("❌ Errore fetch Reddit:", err));
     }
   } else {
-    // 🌐 ALTRI SITI NON SUPPORTATI
-    console.log("⚠️ Sito non supportato:", hostname);
-
     chrome.storage.local.set({
       unsupportedSite: true,
     });
