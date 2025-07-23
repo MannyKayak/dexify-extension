@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Dexify",
+  "version": "0.0.0",
+  "description": "Pick up your GitHub or Reddit profile and turn it into a pokecard!",
+  "short_name": "Dexify",
+  "icons": {
+    "16": "assets/icons/dexify-icon.png",
+    "32": "assets/icons/dexify-icon.png",
+    "48": "assets/icons/dexify-icon.png",
+    "128": "assets/icons/dexify-icon.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/dexify-icon.png",
+      "32": "assets/icons/dexify-icon.png",
+      "48": "assets/icons/dexify-icon.png",
+      "128": "assets/icons/dexify-icon.png"
+    },
+    "default_title": "tiny title"
+  },
+
+  "options_page": "options.html",
+
+  "background": {
+    "service_worker": "js/background.bundle.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*", "https://www.reddit.com/*"],
+      "js": ["js/contentScript.bundle.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "permissions": ["storage", "scripting", "tabs"],
+
+  "host_permissions": ["https://api.github.com/*", "https://www.reddit.com/*"]
+}
