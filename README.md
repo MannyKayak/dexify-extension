@@ -77,7 +77,7 @@ source/
 
 ---
 
-## Flow dyagram
+## Flow diagram
 
 ![Technical Diagram](flow_diagram.png)
 
